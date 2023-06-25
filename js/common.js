@@ -256,6 +256,10 @@ let $document = $(document);
                 });
             }, 300);
         }
+        if ($(this).attr('data-src') == '#modalProgram') {
+            let modalTitle = $(this).closest('.program-card').find('.program-card__header').text();
+            $(document).find('.js_programs-title').text(modalTitle);
+        }
     });
     function intlTel() {
         let t = document.querySelectorAll('input[type="tel"]');
@@ -374,12 +378,13 @@ let $document = $(document);
 
     if (_winWidth > 768) {
         let mySwiperTeam = new Swiper('.team__slider .swiper', {
-            loop: false,
+            loop: true,
             speed: 1000,
             autoplay: false,
             paginationClickable: true,
             spaceBetween: 30,
             slidesPerView: 3,
+            slidesPerGroup: 3,
             updateTranslate: true,
             watchOverflow: true,
             navigation: {

@@ -149,7 +149,6 @@ input[type="button"]:focus {
 
 button:focus {
   outline: none;
-  border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -1004,6 +1003,10 @@ div {
   padding-right: 24px !important;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .font-700 {
   font-weight: 700 !important;
 }
@@ -1119,11 +1122,6 @@ div {
   width: 1em;
   height: 1em;
   fill: currentColor;
-}
-
-.icon-telegram {
-  width: 25px;
-  height: 25px;
 }
 
 a {
@@ -1712,23 +1710,29 @@ body {
   opacity: 1;
 }
 
-.soc-item {
+.soc-item,
+.mainMenu .soc-item {
   font-size: 23px;
   margin-right: 22px;
   color: #89D7D7;
 }
 
 @media only screen and (max-width: 767px) {
-  .soc-item {
+  .soc-item,
+  .mainMenu .soc-item {
     font-size: 18px;
   }
 }
 
-.soc-item:hover, .soc-item:active, .soc-item:focus {
+.soc-item:hover, .soc-item:active, .soc-item:focus,
+.mainMenu .soc-item:hover,
+.mainMenu .soc-item:active,
+.mainMenu .soc-item:focus {
   color: rgba(255, 235, 59, 0.8);
 }
 
-.soc-item:last-child {
+.soc-item:last-child,
+.mainMenu .soc-item:last-child {
   margin-right: 0;
 }
 
@@ -1979,7 +1983,7 @@ body {
 @media only screen and (max-width: 991px) {
   .tab-navigation {
     border: none;
-    margin: 16px 0;
+    margin: 0 0 16px;
   }
 }
 
@@ -2305,9 +2309,9 @@ body {
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.02em;
-  display: inline-block;
   color: #89D7D7;
   margin-right: 22px;
+  display: inline-block;
 }
 
 @media only screen and (max-width: 1260px) {
@@ -2322,6 +2326,7 @@ body {
     font-size: 12px;
     line-height: 18px;
     margin-right: 0;
+    display: block;
   }
 }
 
@@ -2727,6 +2732,14 @@ body {
 
 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background: #89D7D7;
+}
+
+.swiper-pagination--dark .swiper-pagination-bullet {
+  border: 1px solid #000000;
+}
+
+.swiper-pagination--dark .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #000000;
 }
 
 .slider-btn {
@@ -3806,7 +3819,7 @@ body {
 }
 
 .packages-card__body {
-  height: calc(100% - 80px);
+  height: calc(100% - 67px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4039,6 +4052,13 @@ body {
   background-size: cover;
   border: 2px solid #89D7D7;
   padding: 38px 34px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 @media only screen and (max-width: 767px) {
@@ -4058,7 +4078,7 @@ body {
 
 @media only screen and (max-width: 767px) {
   .team-member__name {
-    padding-top: 16px;
+    padding-top: 8px;
   }
 }
 
@@ -4084,8 +4104,18 @@ body {
   margin-bottom: 0;
 }
 
+.team-member__list {
+  margin-top: 22px;
+}
+
+@media only screen and (max-width: 767px) {
+  .team-member__list {
+    margin-top: 8px;
+  }
+}
+
 .team-member__list li {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 @media only screen and (max-width: 767px) {
