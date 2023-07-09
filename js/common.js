@@ -260,7 +260,11 @@ let $document = $(document);
             let modalTitle = $(this).closest('.program-card').find('.program-card__header').text();
             $(document).find('.js_programs-title').text(modalTitle);
         }
+        let dataForm = $(this).attr('data-form');
+        $(document).find('.js_hidden-input').val(dataForm);
     });
+
+    
     function intlTel() {
         let t = document.querySelectorAll('input[type="tel"]');
         $(t).each(function(t, i) {

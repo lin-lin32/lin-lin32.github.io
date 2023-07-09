@@ -2612,7 +2612,13 @@ body {
 }
 
 .top__slider .swiper {
-  height: 100vh;
+  height: calc(100vh - 80px);
+}
+
+@media only screen and (max-width: 1200px) {
+  .top__slider .swiper {
+    height: calc(100vh - 67px);
+  }
 }
 
 .top__slider .swiper img {
@@ -2699,6 +2705,16 @@ body {
   .slider-btn {
     bottom: 40px;
     right: 16px;
+  }
+}
+
+.main-wrap {
+  padding-top: 80px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .main-wrap {
+    padding-top: 67px;
   }
 }
 
