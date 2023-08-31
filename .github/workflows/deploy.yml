@@ -17,7 +17,7 @@ jobs:
           chmod 600 /tmp/deploy_key
       - name: Deploy to Server
         run: |
-          ssh -vvv -o StrictHostKeyChecking=no -i  /tmp/deploy_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /home/team404_kiev_club/lin-lin32.github.io  && git pull"
+          ssh -o StrictHostKeyChecking=no -i  /tmp/deploy_key ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }} "cd /home/team404_kiev_club/lin-lin32.github.io  && git pull"
         env:
           SERVER_HOST: ${{ secrets.SERVER_HOST }}
           SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}
