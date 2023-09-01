@@ -440,8 +440,15 @@ $.each($animation_elements, function() {
 /*Function in-view end*/
 
 /*Function validate*/
-$(document).on("click", ".js_validate button[type=submit], .js_validate input[type=submit]", function () {
+$(document).on("click", ".js_validate button[type=submit], .js_validate input[type=submit]", async function (event) {
     let valid = validate($(this).parents(".js_validate"));
+
+    if (valid) {
+        event.preventDefault();
+        await sendTelegramMessage(this);
+        $(this).closest('form').submit();
+    }
+
     if (valid == false) {
         return false;
     }
