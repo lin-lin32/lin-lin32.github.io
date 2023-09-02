@@ -1,5 +1,5 @@
 const sendTelegramMessage = async function (form) {
-
+    console.log('Sending')
     const buttonName = $(form).closest("form").find("input[type=hidden]").val();
     const name = $(form).closest("form").find("input[name='name']").val();
     const phone = $(form).closest("form").find("input[name='phone']").val();
@@ -19,5 +19,8 @@ const sendTelegramMessage = async function (form) {
                 options: { parse_mode: 'HTML' }
             }
         })
-    }).then(() => true);
+    }).then(() => {
+        console.log('Sent')
+        return true
+    });
 }
