@@ -4,8 +4,7 @@ const sendTelegramMessage = async function (form) {
     const name = $(form).closest("form").find("input[name='name']").val();
     const phone = $(form).closest("form").find("input[name='phone']").val();
 
-
-    await fetch('https://team404kyiv.club/telegram_bot/message/', {
+    return fetch('https://team404kyiv.club/telegram_bot/message/', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -20,6 +19,5 @@ const sendTelegramMessage = async function (form) {
                 options: { parse_mode: 'HTML' }
             }
         })
-    });
-    return true;
+    }).then(() => true);
 }
