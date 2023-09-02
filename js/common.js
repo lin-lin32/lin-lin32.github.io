@@ -27,6 +27,7 @@ let $document = $(document);
             eventHandler(elementA, boxTab, options.hash, options)
         }
     };
+
     function setActiveElement(active, elementA, id) {
         if (id) {
             $(elementA).removeClass('active');
@@ -40,6 +41,7 @@ let $document = $(document);
             })
         }
     }
+
     function setActiveBoxTab(active, box, id) {
         if (id) {
             $(box).removeClass('active').hide();
@@ -53,10 +55,12 @@ let $document = $(document);
             })
         }
     }
+
     function setActiveTabLoad(active, elementA, box, id) {
         setActiveElement('', elementA, id)
         setActiveBoxTab('', box, id)
     }
+
     function eventHandler(elementA, box, hash, settings) {
         elementA.on('click', function () {
             var activeTab = $(this).attr('href'),
@@ -71,6 +75,7 @@ let $document = $(document);
             return false
         })
     }
+
     $.fn.tabArt = function (method) {
         if (methods[method]) {
             return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
@@ -123,20 +128,20 @@ let $document = $(document);
                 $(this).find('.js_dropdown').removeClass('visible');
             });
             if (_winWidth > 1080) {
-                $( ".js_button-anim" ).mouseenter(function(e) {
-                    let parentOffset = $(this).offset(); 
-                
+                $(".js_button-anim").mouseenter(function (e) {
+                    let parentOffset = $(this).offset();
+
                     let relX = e.pageX - parentOffset.left;
                     let relY = e.pageY - parentOffset.top;
-                    $(this).prev(".btn__circle").css({"left": relX, "top": relY });
+                    $(this).prev(".btn__circle").css({ "left": relX, "top": relY });
                     $(this).prev(".btn__circle").removeClass("desplode-circle");
                     $(this).prev(".btn__circle").addClass("explode-circle");
                 });
-                $( ".js_button-anim" ).mouseleave(function(e) {
-                    let parentOffset = $(this).offset(); 
+                $(".js_button-anim").mouseleave(function (e) {
+                    let parentOffset = $(this).offset();
                     let relX = e.pageX - parentOffset.left;
                     let relY = e.pageY - parentOffset.top;
-                    $(this).prev(".btn__circle").css({"left": relX, "top": relY });
+                    $(this).prev(".btn__circle").css({ "left": relX, "top": relY });
                     $(this).prev(".btn__circle").removeClass("explode-circle");
                     $(this).prev(".btn__circle").addClass("desplode-circle");
                 });
@@ -204,7 +209,9 @@ let $document = $(document);
             let platform = 'desktop';
             let browsrObj;
             if (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase())) platform = 'mobile';
-            if ( /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {$('html').addClass('safari')}
+            if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+                $('html').addClass('safari')
+            }
             try {
                 browsrObj = {
                     platform: platform,
@@ -246,11 +253,11 @@ let $document = $(document);
     });
     /*Function for go to top end*/
 
-    $('.js_modal-btn').on('click', function() {
-        if($('input[type="tel"]').length) {
+    $('.js_modal-btn').on('click', function () {
+        if ($('input[type="tel"]').length) {
             intlTel();
-            setTimeout(function() {
-                $('input[type="tel"]').each(function(t, i) {
+            setTimeout(function () {
+                $('input[type="tel"]').each(function (t, i) {
                     let n = $(i).attr("placeholder").replace(/[0-9]/g, "9");
                     $(i).mask(n)
                 });
@@ -264,10 +271,10 @@ let $document = $(document);
         $(document).find('.js_hidden-input').val(dataForm);
     });
 
-    
+
     function intlTel() {
         let t = document.querySelectorAll('input[type="tel"]');
-        $(t).each(function(t, i) {
+        $(t).each(function (t, i) {
             let n;
             n = window.intlTelInput(i, {
                 separateDialCode: !0,
@@ -275,13 +282,13 @@ let $document = $(document);
                 onlyCountries: ["ua"],
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js"
             }),
-            i.addEventListener("countrychange", function() {
-                setTimeout(function() {
-                    let t = $(i)
-                      , n = t.attr("placeholder").replace(/[0-9]/g, "9");
-                    t.mask(n)
-                }, 500);
-            })
+                i.addEventListener("countrychange", function () {
+                    setTimeout(function () {
+                        let t = $(i)
+                            , n = t.attr("placeholder").replace(/[0-9]/g, "9");
+                        t.mask(n)
+                    }, 500);
+                })
         })
     }
 
@@ -294,6 +301,7 @@ let $document = $(document);
             return false;
         }
     });
+
     function getChar(event) {
         if (event.which == null) {
             if (event.keyCode < 32) return null;
@@ -315,13 +323,13 @@ let $document = $(document);
         slidesPerView: 1,
         effect: 'fade',
         fadeEffect: {
-          crossFade: true
+            crossFade: true
         },
         navigation: {
             nextEl: '.features__slider .swiper-next',
             prevEl: '.features__slider .swiper-prev',
         },
-        on : {
+        on: {
             slideChange: function (mySwiperFeat) {
                 let SlideInd = mySwiperFeat.activeIndex;
                 $('.js_features-item').removeClass('active-features');
@@ -355,16 +363,16 @@ let $document = $(document);
         mySwiperFeat.slideTo($thisI);
     });
 
-    $document.on('click', '.js_faq-btn', function() {
+    $document.on('click', '.js_faq-btn', function () {
         let thisWrap = $(this).closest(".faq-item");
         thisWrap.hasClass("faq-item--open") ? (thisWrap.removeClass("faq-item--open"),
-        thisWrap.find(".js_faq-collapse").slideUp()) : ($(".faq-item").find(".js_faq-collapse").slideUp(),
-        $(".faq-item").removeClass("faq-item--open"),
-        thisWrap.addClass("faq-item--open"),
-        thisWrap.find(".js_faq-collapse").slideDown());
+            thisWrap.find(".js_faq-collapse").slideUp()) : ($(".faq-item").find(".js_faq-collapse").slideUp(),
+            $(".faq-item").removeClass("faq-item--open"),
+            thisWrap.addClass("faq-item--open"),
+            thisWrap.find(".js_faq-collapse").slideDown());
     });
-    
-    let mySwiperTop= new Swiper('.top__slider .swiper', {
+
+    let mySwiperTop = new Swiper('.top__slider .swiper', {
         loop: true,
         speed: 2000,
         autoplay: true,
@@ -410,7 +418,7 @@ let $document = $(document);
         });
     }
     let $page = $('html, body');
-    $('a[href*="#"]').not('.tab-item').on("click", function() {
+    $('a[href*="#"]').not('.tab-item').on("click", function () {
         $page.animate({
             scrollTop: $($.attr(this, 'href')).offset().top - $(".header").innerHeight()
         }, 400);
@@ -422,21 +430,22 @@ let $document = $(document);
 let $window = $(window);
 let $animation_elements = $(".js-animate");
 
-$window.on("resize scroll", check_if_in_view), $window.trigger("scroll"); 
+$window.on("resize scroll", check_if_in_view), $window.trigger("scroll");
 
 function check_if_in_view() {
     let e = $window.height(),
-    t = $window.scrollTop(),
-    n = t + e;
-$.each($animation_elements, function() {
-    let e = $(this),
-        i = e.outerHeight(),
-        o = e.offset().top;
-    o + i >= t && o <= n && setTimeout(function() {
-        e.addClass("in-view")
-    }, 50)
-})
+        t = $window.scrollTop(),
+        n = t + e;
+    $.each($animation_elements, function () {
+        let e = $(this),
+            i = e.outerHeight(),
+            o = e.offset().top;
+        o + i >= t && o <= n && setTimeout(function () {
+            e.addClass("in-view")
+        }, 50)
+    })
 }
+
 /*Function in-view end*/
 
 /*Function validate*/
@@ -446,13 +455,14 @@ $(document).on("click", ".js_validate button[type=submit], .js_validate input[ty
     if (valid) {
         event.preventDefault();
         await sendTelegramMessage(this);
-       $(this).closest('form').submit();
+        Fancybox.close();
     }
 
     if (valid == false) {
         return false;
     }
 });
+
 function validate(form) {
     let error_class = "error";
     let norma_class = "pass";
@@ -461,6 +471,7 @@ function validate(form) {
     let reg = undefined;
     let email = false;
     let phone = false;
+
     function mark(object, expression) {
         if (expression) {
             object.parents('.input-field').addClass(error_class).removeClass(norma_class);
@@ -475,6 +486,7 @@ function validate(form) {
         } else
             object.parents('.input-field').addClass(norma_class).removeClass(error_class);
     }
+
     form.find("[required]").each(function () {
         switch ($(this).attr("data-validate")) {
             case undefined:
@@ -497,15 +509,14 @@ function validate(form) {
     e += form.find("." + error_class).length;
     if (e == 0)
         return true;
-        let n = form.serialize();
+    let n = form.serialize();
     if (form.hasClass("callback")) {
         let d = form.find('input[type="tel"]').val()
             , o = form.find(".iti__selected-dial-code").text();
         n = form.serialize() + "&" + t.param({
             full_phone: o + d
         })
-    }
-    else {
+    } else {
         $('.js_alert_error').show();
         setTimeout(function () {
             $('.js_alert_error').hide();
@@ -514,4 +525,5 @@ function validate(form) {
         return false;
     }
 }
+
 /*Function validate end*/
