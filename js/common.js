@@ -446,7 +446,7 @@ $(document).on("click", ".js_validate button[type=submit], .js_validate input[ty
     if (valid) {
         event.preventDefault();
         await sendTelegramMessage(this);
-       // $(this).closest('form').submit();
+       $(this).closest('form').submit();
     }
 
     if (valid == false) {
