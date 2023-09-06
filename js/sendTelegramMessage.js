@@ -11,6 +11,7 @@ const sendTelegramMessage = async function (form) {
         body: JSON.stringify({
             data: {
                 text: `<b><u>ОТРИМАНО ЗАЯВКУ КОРИСТУВАЧА</u></b>\n
+<b>Сайт: </b> <i>team404kyiv.club</i>\n
 <b>Ім'я: </b> <i>${name}</i>\n
 <b>Телефон: </b> <i>${phone}</i>\n
 <b>Форма: </b> <i>"${buttonName}"</i>\n
