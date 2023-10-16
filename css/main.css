@@ -2617,7 +2617,7 @@ body {
 
 @media only screen and (max-width: 1200px) {
   .top__slider .swiper {
-    height: calc(100vh - 67px);
+    height: 100%;
   }
 }
 
