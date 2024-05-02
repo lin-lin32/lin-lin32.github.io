@@ -3,7 +3,7 @@ const sendTelegramMessage = async function (form) {
     const name = $(form).closest("form").find("input[name='name']").val();
     const phone = $(form).closest("form").find("input[name='phone']").val();
 
-    return fetch('https://team404kyiv.club/telegram_bot/message/', {
+    return fetch('https://kyiv.team404.online/telegram_bot/message/', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -11,7 +11,7 @@ const sendTelegramMessage = async function (form) {
         body: JSON.stringify({
             data: {
                 text: `<b><u>ОТРИМАНО ЗАЯВКУ КОРИСТУВАЧА</u></b>\n
-<b>Сайт: </b> <i>team404kyiv.club</i>\n
+<b>Сайт: </b> <i>kyiv.team404.online</i>\n
 <b>Ім'я: </b> <i>${name}</i>\n
 <b>Телефон: </b> <i>${phone}</i>\n
 <b>Форма: </b> <i>"${buttonName}"</i>\n
